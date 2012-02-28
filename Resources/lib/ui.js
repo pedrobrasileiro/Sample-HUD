@@ -4,9 +4,10 @@
 	MyApp.ui.win = false;
 	MyApp.ui.table = false;
 	MyApp.ui.data = [
-		{title:'Heads Up Display (HUD)',hasDetail:true},
-		{title:'Passcode Modal',hasDetail:true}
+		{title:'Show HUD', hasDetail:true}
 	];
+	
+	var SampleHUD = require('modules/SampleHUD');
 	
 	MyApp.ui.createWindow = function(modal,callb) {
 		MyApp.ui.win = Ti.UI.createWindow({
@@ -40,23 +41,12 @@
 			MyApp.ui.table.addEventListener('click',function(e) {
 				
 				if (e.index == 0) {
-					var HUD = MyApp.mod.hud.init(MyApp.ui.win);
+					var HUD = new SampleHUD(MyApp.ui.win);
 					HUD.show('Doing Something');
 					setTimeout(function(){
 						HUD.hide();
 					},2000);
 				}
-				
-				if (e.index == 1) {
-					var PIN = MyApp.mod.passcode.init({code:1234,barColor:'#0079C1'});
-					PIN.open({
-						success:function(){
-						Ti.API.info('Success');
-					},error:function(){
-						Ti.API.info('failed');
-					}});
-				}
-				
 			});
 		});
 		
