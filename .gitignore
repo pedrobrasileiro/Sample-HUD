@@ -1,11 +1,6 @@
 *.tar.gz
 *~
-build/iphone/*
-build/android/*
+build/*
 tmp
-.settings
 *.DS_Store
 *.swp
-*.project*.class
-*.pyc
-*.pyo
