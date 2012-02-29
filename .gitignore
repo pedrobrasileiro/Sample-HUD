@@ -4,3 +4,5 @@ build/*
 tmp
 *.DS_Store
 *.swp
+.fastdev.lock
+build.log
